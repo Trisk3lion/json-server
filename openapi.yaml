@@ -24,6 +24,25 @@ paths:
       description: Fetches all users from the database
       operationId: fetchUsers
       responses:
+        '2XX':
+          description: success, user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 1234abc
+                  username:
+                    type: string
+                    example: kribbstar
+                  score:
+                    type: integer
+                    example: 100
+                  active:
+                    type: boolean
+                    example: true
         default:
           description: Default error sample response
       tags:
@@ -36,6 +55,24 @@ paths:
       description: Fetches all attempts
       operationId: fetchAttempts
       responses:
+         '2XX':
+          description: success, user
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 1234abc
+                    score:
+                      type: integer
+                      example: 100
+                    userId:
+                      type: string
+                      example: kribbstar
         default:
           description: Default error sample response
       tags:
