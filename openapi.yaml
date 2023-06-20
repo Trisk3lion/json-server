@@ -29,20 +29,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  id:
-                    type: string
-                    example: 1234abc
-                  username:
-                    type: string
-                    example: kribbstar
-                  score:
-                    type: integer
-                    example: 100
-                  active:
-                    type: boolean
-                    example: true
+                $ref: '#/components/schemas/FullUser'
         default:
           description: Default error sample response
       tags:
@@ -60,20 +47,40 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                      example: 1234abc
-                    score:
-                      type: integer
-                      example: 100
-                    userId:
-                      type: string
-                      example: kribbstar
+                $ref: '#/components/schemas/ArrayofAttempts'
         default:
           description: Default error sample response
       tags:
         - Attempts
+
+components:
+  schemas:
+    FullUser:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1234abc
+        username:
+          type: string
+          example: kribbstar
+        score:
+          type: integer
+          example: 100
+        active:
+          type: boolean
+          example: true
+    ArrayofAttempts:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+            example: 1234abc
+          score:
+            type: integer
+            example: 100
+          userId:
+            type: string
+            example: kribbstar
